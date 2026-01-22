@@ -1,14 +1,14 @@
 package com.example.rickmortyapp.data.data_source
 
-import com.example.rickmortyapp.data.model.CharacterResponseDto
+import com.example.rickmortyapp.data.model.CharacterDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface CharacterApi {
 
-    @GET("characters")
-    suspend fun getAllCharakters(): List<CharacterResponseDto>
+    @GET("character")
+    suspend fun getCharacter(): CharacterDto
 
     @GET("characters/{id}")
-    suspend fun getCharacterById(@Path("id") id: Int): CharacterResponseDto
+    suspend fun getCharacterById(@Path("id") id: Int): CharacterDto.Result
 }

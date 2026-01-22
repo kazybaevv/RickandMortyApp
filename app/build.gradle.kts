@@ -70,4 +70,9 @@ dependencies {
 
     // NAV HOST
     implementation(libs.androidx.navigation.compose)
+
+
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
 }
