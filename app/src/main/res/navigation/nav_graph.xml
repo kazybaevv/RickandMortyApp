@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination=".MainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.rickmortyapp.presentation.activity.MainActivity"
+        android:label="Characters">
+        <action
+            android:id="@+id/action_characters_to_detail"
+            app:destination="@id/DetailActivity" />
+    </activity>
+
+    <activity
+        android:id="@+id/DetailActivity"
+        android:name="com.example.rickmortyapp.presentation.activity.DetailActivity"
+        android:label="Detail">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="DetailActivity"
+            app:nullable="true" />
+    </activity>
+
+</navigation>

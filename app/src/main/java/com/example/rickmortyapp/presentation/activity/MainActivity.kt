@@ -2,11 +2,15 @@ package com.example.rickmortyapp.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import com.example.rickmortyapp.databinding.ActivityMainBinding
 import com.example.rickmortyapp.presentation.adapters.CharacterAdapter
 import com.example.rickmortyapp.presentation.util.UIState
@@ -35,9 +39,12 @@ class MainActivity : AppCompatActivity() {
         initializeObserver()
     }
 
+
     private fun initializeAdapter() {
         binding.characterRecyclerView.adapter = adapter
     }
+
+
 
     private fun initializeObserver() {
         lifecycleScope.launch {
@@ -45,18 +52,23 @@ class MainActivity : AppCompatActivity() {
                 viewModel.state.collect { state ->
                     when (state) {
                         is UIState.Empty -> {
-
+                            binding.progress.isVisible = true
+                            binding.characterRecyclerView.isVisible = true
                         }
 
                         is UIState.Error -> {
-
+                            binding.progress.isVisible = false
+                            binding.characterRecyclerView.isVisible = false
                         }
 
                         is UIState.Loading -> {
-
+                            binding.progress.isVisible = true
+                            binding.characterRecyclerView.isVisible = false
                         }
 
                         is UIState.Succes -> {
+                            binding.progress.isVisible = false
+                            binding.characterRecyclerView.isVisible = true
                             adapter.submitList(state.data.results)
                         }
                     }

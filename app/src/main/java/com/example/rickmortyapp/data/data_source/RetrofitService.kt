@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object RetrofitService {
-    private const val BASE_URL = "https://rickandmortyapi.com/api/character"
+    private const val BASE_URL =
 
     private val json = Json {
         ignoreUnknownKeys = true
