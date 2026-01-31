@@ -8,12 +8,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.rickmortyapp.databinding.ActivityDetailBinding
+import com.example.rickmortyapp.presentation.Base.BaseActivity
 import com.example.rickmortyapp.presentation.util.UIState
 import com.example.rickmortyapp.presentation.viewModel.СharacterDetailViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
     private val binding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
     private val viewModel : СharacterDetailViewModel by viewModel()
     private val id by lazy { intent.getIntExtra("ID", 0) }

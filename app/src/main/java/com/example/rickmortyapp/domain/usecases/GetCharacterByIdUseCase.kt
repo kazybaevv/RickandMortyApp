@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 class GetCharacterByIdUseCase(
     private val repository: CharacterRepository
 ) {
-    suspend operator fun invoke(id: Int): Flow<Either<String, Character.Result>> =
+     operator fun invoke(id: Int): Flow<Either<String, Character.Result>> =
         repository.getCharacterById(id)
 }

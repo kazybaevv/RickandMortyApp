@@ -26,7 +26,7 @@ class CharacterRepositoryImpl(
         }
     }.flowOn(Dispatchers.IO)
 
-    override suspend fun getCharacterById(id: Int): Flow<Either<String, Character.Result>> = flow {
+    override  fun getCharacterById(id: Int): Flow<Either<String, Character.Result>> = flow {
         try {
             val api = api.getCharacterById(id)
             emit(Either.Right(api.toResult()))

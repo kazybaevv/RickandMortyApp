@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterRepository {
     suspend fun getCharacter(): Flow<Either<String, Character>>
-    suspend fun getCharacterById(id: Int): Flow<Either<String, Character.Result>>
+     fun getCharacterById(id: Int): Flow<Either<String, Character.Result>>
 }
