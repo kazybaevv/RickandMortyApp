@@ -75,4 +75,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
+
+    implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.leanback.paging)
+    implementation(libs.androidx.paging.runtime)
 }
